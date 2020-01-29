@@ -16,7 +16,10 @@ public class BoardDAOImpl implements BoardDAO {
 	public ArrayList<BoardModel> selectAllBoard() {
 		BoardDAO mapper = sqlSession.getMapper(BoardDAO.class);
 		ArrayList<BoardModel> arr = new ArrayList<BoardModel>();
-		arr = mapper.selectAllBoard();
+		for(BoardModel model : mapper.selectAllBoard())
+		{
+			arr.add(new BoardModel(model.bno,model.btitle, model.bcontent, model.bdate.substring(5,11), model.mno));
+		}
 		return arr;
 	}
 
