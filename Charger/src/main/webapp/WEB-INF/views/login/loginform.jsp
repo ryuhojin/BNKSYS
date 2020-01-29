@@ -10,16 +10,6 @@
 </head>
 <body>
 <div class="container" style="background-image: url('resources/image/back.jpg'); background-size:cover;">
-   <!--    <div class="header">
-        <div class="logo">
-            <a class="logos">CHARGER</a>
-        </div>
-      <div class="menu">
-            <a class="menus">BOARD</a>
-            <a class="menus">STATION</a>
-            <a class="menus"><span class="pointtospan">L</span>OGIN</a>
-        </div> 
-    </div>-->
      <jsp:include page="../section/header.jsp"></jsp:include>
     <div class="main">
         <div class="loginpanel">
@@ -30,9 +20,7 @@
             </form>
         </div>
     </div>
-    <div class="footer">
-        <span>Made By BNK SYS Junior</span>
-    </div>
+     <jsp:include page="../section/footer.jsp"></jsp:include>
 </div>
 </body>
 </html>

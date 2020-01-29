@@ -44,6 +44,13 @@ public class HomeController {
 		
 		return "login/loginform";
 	}
+	@RequestMapping(value = "/station", method = RequestMethod.GET)
+	public String station(HttpSession httpSession,Model model) {
+		
+		return "station/station";
+	}
+	
+
 	
 	@RequestMapping(value = "/loginAf", method = { RequestMethod.GET,RequestMethod.POST })
 	public String loginAf(HttpSession httpSession,HttpServletRequest req,HttpServletResponse res, Model model) {
@@ -66,12 +73,12 @@ public class HomeController {
 		} catch (UnsupportedEncodingException e) {
 			System.out.println(e.getMessage());
 		}
-		return "redirect:login";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession,Model model) {
 		System.out.println("logout들어옴");
 		httpSession.invalidate();
-		return "login/loginform";
+		return "main";
 	}
 }

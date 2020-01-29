@@ -4,20 +4,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="header">
         <div class="logo">
-            <a class="logos">CHARGER</a>
+            <a class="logos" href="/app/">CHARGER</a>
         </div>
         <div class="menu">
-        <c:if test="${not empty sessionScope.user }">
-        		 <a class="menus">${sessionScope.user.id}님</a>
-        	</c:if>
-            <a class="menus">BOARD</a>
-            <a class="menus">STATION</a>
+            <a class="menus" href="./board">BOARD</a>
+            <a class="menus" href="./station">STATION</a>
             <c:choose>
             <c:when test="${empty sessionScope.user }">
-             <a class="menus"><span class="pointtospan">L</span>OGIN</a>
+             <a class="menus" href="/app/login">LOGIN</a>
             </c:when>
             <c:otherwise>
-				<a class="menus" href="./logout"><span class="pointtospan">L</span>OGOUT</a>
+				<a class="menus" href="./logout">LOGOUT</a>
             </c:otherwise>
             </c:choose>
         </div>
