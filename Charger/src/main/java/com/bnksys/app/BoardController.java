@@ -28,20 +28,20 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	@RequestMapping(value = "/board", method = RequestMethod.GET)
+	@RequestMapping(value = "/boardinsert", method = RequestMethod.GET)
 	public String formFn(Locale locale, Model model) {
 		return "board/boardform";
 	}
 	
-	@RequestMapping(value = "/selectAllBoard", method = {RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/board", method = {RequestMethod.POST,RequestMethod.GET})
 	public String selectFn(Locale locale, Model model) {
 		System.out.println("Enter to selectAllBoard");
 		ArrayList<BoardModel> result = daoImpl.selectAllBoard();
 		model.addAttribute("result",result);
-		return "board/boardlist";
+		return "board/board";
 	}
 	
-	@RequestMapping(value = "/findOneBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "/boarddetail", method = RequestMethod.GET)
 	public String selectoFn(HttpServletRequest req,HttpServletResponse res, Model model) {
 		try {
 			req.setCharacterEncoding("utf-8");
@@ -73,10 +73,10 @@ public class BoardController {
 		BoardModel board = new BoardModel(btitle,bcontent,bdate,mno);
 		System.out.println(board.toString());
 		daoImpl.insertBoard(board);
-		return "redirect:selectAllBoard";
+		return "redirect:board";
 	}
 	//updateForm
-		@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
+		@RequestMapping(value = "/boardupdate", method = RequestMethod.GET)
 		public String updateformFn(HttpServletRequest req,HttpServletResponse res, Model model) {
 			try {
 				req.setCharacterEncoding("utf-8");
@@ -104,14 +104,14 @@ public class BoardController {
 		BoardModel board = new BoardModel(bno,btitle,bcontent,bdate,mno);
 		System.out.println(board.toString());
 		daoImpl.updateBoard(board);
-		return "redirect:selectAllBoard";
+		return "redirect:board";
 	}
 	
 	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
 	public String deleteFn(HttpServletRequest req, Model model) {
 		int bno = Integer.parseInt(req.getParameter("bno"));		//hide속성
 		daoImpl.deleteBoard(bno);
-		return "redirect:selectAllBoard";
+		return "redirect:board";
 	}
 	
 }
