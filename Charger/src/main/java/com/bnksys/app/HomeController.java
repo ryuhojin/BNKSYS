@@ -21,8 +21,6 @@ import com.bnksys.mybatis.BoardDAOImpl;
 import com.bnksys.mybatis.MemberDAOImpl;
 import com.bnksys.mybatis.MemberModel;
 
-import jdk.internal.org.jline.utils.Log;
-
 /**
  * Handles requests for the application home page.
  */
@@ -62,12 +60,12 @@ public class HomeController {
 			MemberModel user = new MemberModel(id,pass);
 			System.out.println(user.toString());
 			int result = daoImpl.MemberLogin(user);
-			//로그인 성공
+			//濡쒓렇�씤 �꽦怨�
 			if(result>0) {
-				System.out.println("로그인성공"+user.toString());
+				System.out.println("濡쒓렇�씤�꽦怨�"+user.toString());
 				httpSession.setAttribute("user",user );
 			}else {
-				System.out.println("로그인 실패");
+				System.out.println("濡쒓렇�씤 �떎�뙣");
 				return "redirect:login";
 			}
 		} catch (UnsupportedEncodingException e) {
@@ -77,7 +75,7 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession,Model model) {
-		System.out.println("logout들어옴");
+		System.out.println("logout�뱾�뼱�샂");
 		httpSession.invalidate();
 		return "main";
 	}

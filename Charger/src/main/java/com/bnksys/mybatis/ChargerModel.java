@@ -1,6 +1,7 @@
 package com.bnksys.mybatis;
 
 public class ChargerModel {
+	int cno;
 	//충전소명
 	String cname;
 	//충전소위치상세
@@ -23,13 +24,16 @@ public class ChargerModel {
 	double lng;
 	//지역구
 	String district;
+	
+	
 	public ChargerModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ChargerModel(String cname, String locdetail, String starttime, String endtime, int fullnum, int fastnum,
-			String locst, String parking, double lat, double lng, String district) {
+	public ChargerModel(int cno, String cname, String locdetail, String starttime, String endtime, int fullnum,
+			int fastnum, String locst, String parking, double lat, double lng, String district) {
 		super();
+		this.cno = cno;
 		this.cname = cname;
 		this.locdetail = locdetail;
 		this.starttime = starttime;
@@ -44,9 +48,15 @@ public class ChargerModel {
 	}
 	@Override
 	public String toString() {
-		return "ChargerModel [cname=" + cname + ", locdetail=" + locdetail + ", starttime=" + starttime + ", endtime="
-				+ endtime + ", fullnum=" + fullnum + ", fastnum=" + fastnum + ", locst=" + locst + ", parking="
-				+ parking + ", lat=" + lat + ", lng=" + lng + ", district=" + district + "]";
+		return "ChargerModel [cno=" + cno + ", cname=" + cname + ", locdetail=" + locdetail + ", starttime=" + starttime
+				+ ", endtime=" + endtime + ", fullnum=" + fullnum + ", fastnum=" + fastnum + ", locst=" + locst
+				+ ", parking=" + parking + ", lat=" + lat + ", lng=" + lng + ", district=" + district + "]";
+	}
+	public int getCno() {
+		return cno;
+	}
+	public void setCno(int cno) {
+		this.cno = cno;
 	}
 	public String getCname() {
 		return cname;
@@ -114,6 +124,5 @@ public class ChargerModel {
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-	
 	
 }

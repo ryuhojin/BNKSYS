@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bnksys.mybatis.ChargerDAO">
+	<resultMap type="ChargerModel" id="chargerModel">
+		<result property="cno" column="cno" />
+		<result property="cname" column="cname" />
+		<result property="locdetail" column="locdetail" />
+		<result property="starttime" column="starttime" />
+		<result property="endtime" column="endtime" />
+		<result property="fullnum" column="fullnum" />
+		<result property="fastnum" column="fastnum" />
+		<result property="locst" column="locst" />
+		<result property="parking" column="parking" />
+		<result property="lat" column="lat" />
+		<result property="lng" column="lng" />
+		<result property="district" column="district" />
+	</resultMap>
+
+	<select id="selectAllCharger" resultMap="chargerModel">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,LOCST,PARKING,LAT,LNG,DISTRICT FROM STATION
+	</select>
+	
+	<select id="findOneCharger" parameterType="Integer"
+	resultMap="chargerModel">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,PARKING,LOCST,LAT,LNG,DISTRICT FROM STATION WHERE CNO=#{cno}
+	</select> 
+ 
+</mapper>
