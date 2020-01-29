@@ -8,14 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BOARD</title>
         <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
+        
 </head>
 <body>
 <div class="container" style="background-image: url('resources/image/back.jpg'); background-size:cover;">
      <jsp:include page="../section/header.jsp"></jsp:include>
-    <div class="main">
+    <div class="main" style="flex-direction: column !important;">
     	<jsp:include page="boardlist.jsp"></jsp:include>
+    	<c:if test="${not empty sessionScope.user.id }">
+    	<button id="writebtn" onclick="aaa()">글쓰기</button>
+    	</c:if>
     </div>
      <jsp:include page="../section/footer.jsp"></jsp:include>
+     <script>
+    	function aaa(){
+    		location.href='boardinsert';
+    	}</script>
 </div>
 </body>
 </html>
