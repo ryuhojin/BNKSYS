@@ -7,31 +7,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BOARD</title>
-<link rel="stylesheet" type="text/css" href="resources/css/layout.css">
+<link rel="stylesheet" type="text/css" href="resources/css/base.css">
 
 </head>
 <body>
-	<div class="container"
-		style="background-image: url('resources/image/back.jpg'); background-size: cover;">
+	<div class="container">
 		<jsp:include page="../section/header.jsp"></jsp:include>
-		<div class="main_insertBoard"">
-			<form action="insertBoard" method="post">
-				<input type="text" name="id" readonly="readonly" placeholder="${sessionScope.user.id }"
-					value="${sessionScope.user.id }"> 
-					<input type="hidden" name="mno" readonly="readonly" placeholder="${sessionScope.user.mno }"
-					value="${sessionScope.user.mno }"> 
-				<input type="text" name="btitle" placeholder="제목을 입력하세요">
-				<textarea name="bcontent" placeholder="내용을 입력하세요"></textarea>
-				
-				<input type="submit" value="글쓰기">
-			</form>
+		<div class="input_main">
+			<div class="inputpanel">
+				<form action="insertBoard" method="post">
+					<h1 style="text-align: center">글 쓰기</h1>
+					<input type="text" name="id" readonly="readonly"
+						placeholder="${sessionScope.user.id }"
+						value="${sessionScope.user.id }"> 
+					<input type="hidden"
+						name="mno" readonly="readonly"
+						placeholder="${sessionScope.user.mno }"
+						value="${sessionScope.user.mno }"> 
+					<input type="text"
+						name="btitle" placeholder="제목을 입력하세요">
+					<textarea name="bcontent" placeholder="내용을 입력하세요"></textarea>
+					<input type="submit" value="WRITE">
+				</form>
+			</div>
 		</div>
 		<jsp:include page="../section/footer.jsp"></jsp:include>
-		<script>
-			function aaa() {
-				location.href = 'boardinsert';
-			}
-		</script>
 	</div>
 </body>
 </html>

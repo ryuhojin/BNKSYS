@@ -68,7 +68,7 @@ public class HomeController {
 				httpSession.setAttribute("user",user );
 			}else {
 				System.out.println("로그인 실패");
-				return "redirect:login";
+				return "redirect:/";
 			}
 		} catch (UnsupportedEncodingException e) {
 			System.out.println(e.getMessage());

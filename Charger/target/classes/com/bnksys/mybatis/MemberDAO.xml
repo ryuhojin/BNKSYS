@@ -13,5 +13,4 @@
 	<select id="MemberLogin" resultType="Integer" parameterType="com.bnksys.mybatis.MemberDAO">
 		SELECT count(*) FROM Member where mid=#{id} and mpass=#{pass}
 	</select>
-
 </mapper>
