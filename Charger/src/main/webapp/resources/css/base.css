@@ -73,13 +73,36 @@ body {
 /* 메인 */
 .indexmain {
 	width: 100vw;
-	height: 79vh;
+	height: 80vh;
 	background-image: url("../image/back.jpg");
 	background-size: auto;
 	display: flex;
 	flex-direction: row;
 }
-
+.cmain {
+	width: 100vw;
+	height: 80vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: row;
+}
+#chartleft{
+	width:50vw;
+}
+#chartright{
+	width:50vw;
+	display:flex;
+	flex-direction:column;
+}
+#rightup{
+	width:50vw;
+	height:40vh;
+}
+#rightdown{
+	width:50vw;
+	height:40vh;
+}
 #catchphrase {
 	width: 60vw;
 	height: 80vh;
@@ -316,7 +339,7 @@ body {
 /* 정거장 */
 .station_main {
 	width: 100vw;
-	height: 79vh;
+	height: 80vh;
 	background-image: url("../image/back.jpg");
 	background-size: auto;
 	display: flex;
@@ -343,7 +366,7 @@ body {
 }
 .detailover{
 	width: 100vw;
-	height: 79vh;
+	height: 80vh;
 	display:flex;
 	background-image: url("../image/back.jpg");
 	background-size: cover;
@@ -422,6 +445,9 @@ body {
 		display: flex;
 		justify-content: center;
 	}
+	.cmain{
+		flex-direction: column;
+	}
 	#login {
 		width: 90vw;
 		height: 70vh;
@@ -484,5 +510,47 @@ body {
 #detailmap{
 	width:90vw;
 	height:44vh;
+}
+#chartleft{
+	width:100vw;
+	height:20vh;
+	overflow-x:scroll;
+	overflow-y:hidden;
+	justify-content: center;
+	align-self:center;
+	justify-self:center;
+}
+#chartright{
+	width:100vw;
+	height:56vh;
+	display:flex;
+	flex-direction:column;
+		justify-content: center;
+	align-self:center;
+	justify-self:center;
+}
+#chart_div{
+	width:100vw;
+	height:30vh;
+}
+#donutchart{
+	width:100vw;
+	height:20vh;
+}
+#top_x_div{
+	width:100vw;
+	height:30vh;
+}
+#rightup{
+	width:100vw;
+	height:30vh;
+	overflow-x:scroll;
+	overflow-y:hidden;
+}
+#rightdown{
+	width:100vw;
+	height:30vh;
+	overflow-x:scroll;
+	overflow-y:hidden;
 }
 }

@@ -40,6 +40,6 @@
     </script>
   </head>
   <body>
-    <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+    <div id="top_x_div" style="width: 100%; height: 100%;"></div>
   </body>
 </html>

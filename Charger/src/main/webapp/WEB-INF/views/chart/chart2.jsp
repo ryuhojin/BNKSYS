@@ -17,7 +17,7 @@
 
         var data = google.visualization.arrayToDataTable([
         	 ['District', 'FullCharger', 'FastCharger'],
-        	 <c:forEach var ="rs" items="${result}">
+        	 <c:forEach var ="rs" items="${result2}">
              ['<c:out value="${rs.district}" />', <c:out value="${rs.disPerFull}"/>,<c:out value="${rs.disPerFast}"/>],
              </c:forEach>
         ]);
@@ -40,6 +40,6 @@
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 800px; height: 500px;"></div>
+    <div id="chart_div" style="width: 100%; height: 100%;"></div>
   </body>
 </html>

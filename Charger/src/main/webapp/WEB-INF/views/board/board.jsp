@@ -37,13 +37,13 @@
      <jsp:include page="../section/header.jsp"></jsp:include>
     <div class="board_main">
        <div class="tableP">
-       <c:forEach var="b" items="${result }">
+       <c:forEach var="b" items="${result }" varStatus="vs">
        <div class="board_li" onclick=boardDtail(${b.bno})>
        		<div class="board_mi">
        		<span>${b.btitle }</span>
        		</div>
        		<div class="board_sub">
-       		<span>글번호 : ${b.bno }</span><span>저자 : ${b.mno }</span><span>작성시간 : ${b.bdate}</span>
+       		<span>글번호 : ${vs.count }</span><span>저자 : ${b.mno }</span><span>작성시간 : ${b.bdate}</span>
        		</div>
        </div>
        </c:forEach>
