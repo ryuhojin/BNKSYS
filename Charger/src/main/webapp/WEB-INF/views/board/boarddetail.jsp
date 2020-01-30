@@ -24,15 +24,29 @@
     	location.href = "delete?bno="+bno
     	//location.href = "deleteBoard?bno="+bno
     }
+    function init(){
+    	var strArr = document.location.href.split("/");
+    	if(strArr[4]==""){
+			document.getElementById("now").innerHTML="&nbspHOME"
+		}else if(strArr[4].includes("detail")){
+			document.getElementById("now").innerHTML="&nbspDETAIL"
+		}else if(strArr[4].includes("insert")){
+			document.getElementById("now").innerHTML="&nbspINSERT"
+		}else if(strArr[4].includes("station")){
+			document.getElementById("now").innerHTML="&nbspSTATION"
+		}else if(strArr[4].includes("board")){
+			document.getElementById("now").innerHTML="&nbspBOARD"
+		}
+    }
     </script>
 </head>
-<body>
+<body onload="init()">
 <div class="container">
    <jsp:include page="../section/header.jsp"></jsp:include>
     <div class="view_main">
         <div class="viewpanel">
-            <form name="frm" action="updateBoard" method="post">
-            	<a href="./board" style="text-align:right; text-decoration: none; padding-bottom:2vh; font-size:0.9em; color:grey;">목록으로</a> 
+            <form name="frm" id="viewFRM" action="updateBoard" method="post">
+            	<a href="./board" style="text-align:right; text-decoration: none; padding-bottom:2vh; font-size:0.9em; color:grey; margin-right:2vw;">목록으로</a> 
                 <div style="display:flex; flex-direction: row; justify-content: center;">
                 <span style="text-align: center; font-size:1.3em; font-weight: bold;  padding-right: 1vw;">글 상세내용</span><c:if test="${sessionScope.user.mno eq result.mno}"><span id="changeF" style="border-left: 1px solid black;padding-left:1vw; cursor:pointer; color:grey;" onclick="updateF()">수정하기</span></c:if>
                 </div>

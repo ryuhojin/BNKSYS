@@ -8,9 +8,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BOARD</title>
 <link rel="stylesheet" type="text/css" href="resources/css/base.css">
-
+<script>
+	function init(){
+		var strArr = document.location.href.split("/");
+		if(strArr[4]==""){
+			document.getElementById("now").innerHTML="&nbspHOME"
+		}else if(strArr[4].includes("detail")){
+			document.getElementById("now").innerHTML="&nbspDETAIL"
+		}else if(strArr[4].includes("insert")){
+			document.getElementById("now").innerHTML="&nbspINSERT"
+		}else if(strArr[4].includes("station")){
+			document.getElementById("now").innerHTML="&nbspSTATION"
+		}else if(strArr[4].includes("board")){
+			document.getElementById("now").innerHTML="&nbspBOARD"
+		}
+	}
+</script>
 </head>
-<body>
+<body onload="init()">
 	<div class="container">
 		<jsp:include page="../section/header.jsp"></jsp:include>
 		<div class="input_main">

@@ -44,11 +44,6 @@ public class HomeController {
 		
 		return "login/loginform";
 	}
-	@RequestMapping(value = "/station", method = RequestMethod.GET)
-	public String station(HttpSession httpSession,Model model) {
-		
-		return "station/station";
-	}
 	
 
 	
