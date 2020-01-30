@@ -1,0 +1,391 @@
+/* 공통 */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	margin-top: 0; flex-direction : column;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.header {
+	width: 100vw;
+	height: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.logo {
+	align-self: center;
+	width: 20vw;
+	margin-left: 3vw;
+	font-size: 1.8em;
+}
+
+#now {
+	color: grey;
+}
+
+.logo>a {
+	text-decoration: none;
+	color: black;
+}
+
+.logo>a>span {
+	padding-right: 1vw;
+	border-right: 1px solid black;
+}
+
+.menu {
+	width: 40vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-self: center;
+	margin-right: 1vw;
+}
+
+.menu>a {
+	margin-left: 5vw;
+	text-decoration: none;
+	color: black;
+}
+
+.footer {
+	width: 100vw;
+	height: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.footer>span {
+	align-self: center;
+}
+
+/* 메인 */
+.indexmain {
+	width: 100vw;
+	height: 79vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+#catchphrase {
+	width: 60vw;
+	height: 80vh;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+#catchphrase>span {
+	margin-left: 10vw;
+	font-size: 5em;
+	font-weight: bold;
+}
+
+#login {
+	width: 40vw;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#login>form {
+	box-shadow: 1px 1px 10px 1px grey;
+	background-color: #fff;
+	width: 20vw;
+	height: 50vh !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+#login>form>input {
+	border-radius: 5px;
+	border: 1px solid grey;
+	width: 78%;
+	height: 5vh;
+	margin-bottom: 2vh;
+	padding-left: 2%;
+}
+
+#login>form>button {
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid black;
+}
+/* 게시판 */
+.board_main {
+	width: 100vw;
+	height: 79vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.board_main>.tableP {
+	width: 90vw;
+	height: 70vh;
+	display: flex;
+	align-self: center;
+	justify-content: center;
+}
+
+.tableP>table {
+	background-color: #fff;
+	border: 1px solid black;
+	border-collapse: collapse;
+	align-self: center;
+	width: 90vw;
+	height: 50vh;
+}
+.tableP>table>caption>h1{
+	margin-top:0;
+	margin-bottom:5px;
+}
+
+table>th, td {
+	border-top: 1px solid black;
+}
+
+.board_main>.buttonP {
+	width: 90vw;
+	height: 10vh;
+	align-self: center;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.buttonP>button {
+	margin-top: -1vh;
+	width: 20vw;
+	height: 7vh;
+	background-color: #fff;
+	border: 1px solid black;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+/*게시판글쓰기 */
+.input_main {
+	width: 100vw;
+	height: 79vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.inputpanel {
+	width: 40vw;
+	height: 70vh;
+	align-self: center;
+	background-color: #fff;
+	box-shadow: 1px 1px 10px 2px grey;
+}
+
+.inputpanel>form {
+	width: 40vw;
+	height: 65vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.inputpanel>form>input {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+}
+
+.inputpanel>form>input[type=submit] {
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.inputpanel>form>textarea {
+	margin-top: 2vh;
+	width: 80%;
+	align-self: center;
+	height: 30vh;
+}
+
+/*
+게시글 보기
+ */
+.view_main {
+	width: 100vw;
+	height: 79vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.viewpanel {
+	width: 40vw;
+	height: 70vh;
+	align-self: center;
+	background-color: #fff;
+	box-shadow: 1px 1px 10px 2px grey;
+}
+
+.viewpanel>form {
+	width: 40vw;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.viewpanel>form>input, div {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border: 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+#buttonCap {
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+	justify-content: space-between;
+}	
+.viewpanel>form>textarea {
+	margin-top: 2vh;
+	width: 80%;
+	align-self: center;
+	height: 30vh;
+	border:1px solid #f6f6f6;
+}
+
+/* 정거장 */
+.station_main {
+	width: 100vw;
+	height: 79vh;
+	background-image: url("../image/back.jpg");
+	background-size: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#stationP {
+	align-self: center;
+	width: 90vw;
+	height: 70vh;
+}
+
+@media ( max-width : 500px) {
+	/*공통 모바일 */
+	.header {
+		flex-direction: column;
+		text-align: center;
+		height: 15vh;
+		justify-content: center;
+	}
+	.header>.logo {
+		width: 100vw;
+		margin-top: 2vh;
+		align-self: center;
+		display:flex;
+		flex-direction:row;	
+		justify-content:center;
+		margin: 0;
+	}
+	.header>.menu {
+		margin-top: 3vh;
+		display: flex;
+		justify-content: center;
+		width: 100vw;
+		align-slef: center;
+		margin-right: 0vw;
+	}
+	.header>.menu>a {
+		padding-bottom: 0.5vh;
+		border-bottom: 1px solid black;
+	}
+	.footer {
+		height: 10vh;
+	}
+	/*메인 모바일*/
+	#catchphrase {
+		display: none;
+	}
+	.indexmain {
+		height: 75vh;
+		display: flex;
+		justify-content: center;
+	}
+	#login {
+		width: 90vw;
+		height: 70vh;
+	}
+	#login>form {
+		width: 85vw;
+		height: 60vh;
+	}
+	.footer {
+		height: 10vh;
+	}
+	.board_main{
+	margin-top:0;
+	}
+	/*게시판 모바일 */
+	.inputpanel {
+		width: 90vw;
+		box-shadow: none;
+		border: 1px solid black;
+	}
+	.inputpanel>form {
+		width: 90vw;
+	}
+	.tableP{
+		margin-top:0;
+		height:62vh;
+	}
+	.tableP>table>caption>h1{
+		margin-top:0;
+		margin-bottom:0;
+	}
+	.buttonP{
+		margin-top:0;
+	}
+	.buttonP>button {
+		width: 30vw;
+	}
+	/*게시글 보기 모바일 */
+	.viewpanel {
+		width: 90vw;
+		box-shadow: none;
+		border: 1px solid black;
+	}
+	.viewpanel>form {
+		width: 90vw;
+	}
+}

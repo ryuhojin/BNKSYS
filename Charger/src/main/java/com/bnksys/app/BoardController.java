@@ -88,7 +88,7 @@ public class BoardController {
 			} catch (UnsupportedEncodingException e) {
 				System.out.println(e.getMessage());
 			}
-			return "board/updateform";
+			return "board/board";
 		}
 	
 	@RequestMapping(value = "/updateBoard", method = {RequestMethod.GET,RequestMethod.POST})
@@ -106,9 +106,9 @@ public class BoardController {
 		daoImpl.updateBoard(board);
 		return "redirect:board";
 	}
-	
-	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
-	public String deleteFn(HttpServletRequest req, Model model) {
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String aaaFn(HttpServletRequest req,HttpServletResponse res, Model model) {
+		System.out.println(req.getParameter("bno"));
 		int bno = Integer.parseInt(req.getParameter("bno"));		//hide속성
 		daoImpl.deleteBoard(bno);
 		return "redirect:board";
