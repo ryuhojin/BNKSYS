@@ -2,6 +2,7 @@ package com.bnksys.app;
 
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bnksys.mybatis.BoardDAOImpl;
+import com.bnksys.mybatis.BoardModel;
 import com.bnksys.mybatis.MemberDAOImpl;
 import com.bnksys.mybatis.MemberModel;
 
@@ -57,12 +59,9 @@ public class HomeController {
 			MemberModel user = new MemberModel(id,pass);
 			System.out.println(user.toString());
 			int result = daoImpl.MemberLogin(user);
-			//로그인 성공
 			if(result>0) {
-				System.out.println("로그인성공"+user.toString());
 				httpSession.setAttribute("user",user );
 			}else {
-				System.out.println("로그인 실패");
 				return "redirect:/";
 			}
 		} catch (UnsupportedEncodingException e) {
@@ -70,9 +69,22 @@ public class HomeController {
 		}
 		return "redirect:/";
 	}
+	@RequestMapping(value = "/signup", method = {RequestMethod.POST,RequestMethod.GET})
+	public String insertFn(HttpServletRequest req,HttpServletResponse res, Model model) throws Exception {
+		req.setCharacterEncoding("utf-8");
+		res.setContentType("text/html;charset=UTF-8");
+		String id = req.getParameter("id");
+		String pass = req.getParameter("pass");
+		
+		MemberModel member = new MemberModel(id, pass);
+		daoImpl.MemberAccount(member);
+		return "redirect:/";
+	}
+	
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession,Model model) {
-		System.out.println("logout들어옴");
+		System.out.println("logout�뱾�뼱�샂");
 		httpSession.invalidate();
 		return "main";
 	}

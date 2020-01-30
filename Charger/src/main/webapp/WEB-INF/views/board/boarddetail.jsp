@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="resources/css/base.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/boarddetail.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
@@ -45,11 +46,11 @@
 <div class="container">
    <jsp:include page="../section/header.jsp"></jsp:include>
     <div class="view_main">
-        <div class="viewpanel">
-            <form name="frm" id="viewFRM" action="updateBoard" method="post">
+        <div class="view_panel">
+            <form name="frm" id="view_FRM" action="updateBoard" method="post">
             	<a href="./board" style="text-align:right; text-decoration: none; padding-bottom:2vh; font-size:0.9em; color:grey; margin-right:2vw;">목록으로</a> 
                 <div style="display:flex; flex-direction: row; justify-content: center;">
-                <span style="text-align: center; font-size:1.3em; font-weight: bold;  padding-right: 1vw;">글 상세내용</span><c:if test="${sessionScope.user.mno eq result.mno}"><span id="changeF" style="border-left: 1px solid black;padding-left:1vw; cursor:pointer; color:grey;" onclick="updateF()">수정하기</span></c:if>
+                <span style="text-align: center; align-self:center; font-size:1.3em; font-weight: bold;  padding-right: 1vw;">글 상세내용</span><c:if test="${sessionScope.user.mno eq result.mno}"><span id="changeF" style="border-left: 1px solid black;padding-left:1vw; align-self:center; cursor:pointer; color:grey;" onclick="updateF()">수정하기</span></c:if>
                 </div>
                 <input type="hidden" name="bno" placeholder="${result.bno }" value="${result.bno }">
                 <input type="number" name="mno" readonly="readonly" placeholder="${result.mno }"
@@ -59,17 +60,9 @@
                 <input id="btitle" type="text" name="btitle" readonly="readonly" placeholder="${result.btitle }" value="${result.btitle }" placeholder="제목을 입력하세요">
                 <textarea id="bcontent" name="bcontent" readonly="readonly">${result.bcontent }</textarea>
                 <c:if test="${sessionScope.user.mno eq result.mno}">
-                <div id="buttonCap" justify-self:center;">
-                	<input type="submit" value="수정하기" style="width: 35%;
-					background-color: #fff;
-					border: 1px solid black;
-					border-radius: 10px;
-					text-align: center !important;"> 
-					<input type="button" onclick=deleteboard(${result.bno}) style="width: 35%;
-					background-color: #fff;
-					border: 1px solid black;
-					border-radius: 10px;
-					text-align: center !important;" value="삭제하기">
+                <div id="buttonCap" style="justify-self:center;">
+                	<input type="submit" class="effectbtn" value="수정하기" style=""> 
+					<input type="button" class="effectbtn" onclick=deleteboard(${result.bno}) value="삭제하기">
                 </div>
                 </c:if> 
             </form>

@@ -6,8 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Title</title>
+<link rel="stylesheet" type="text/css" href="resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="resources/css/base.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 <script type="text/javascript">
 	function init() {
 		if(${not empty sessionScope.user})
@@ -20,6 +23,8 @@
 			document.getElementById("now").innerHTML="&nbspHOME"
 		}else if(strArr[4].includes("detail")){
 			document.getElementById("now").innerHTML="&nbspDETAIL"
+		}else if(strArr[4].includes("logout")){
+			document.getElementById("now").innerHTML="&nbspHOME"
 		}else if(strArr[4].includes("insert")){
 			document.getElementById("now").innerHTML="&nbspINSERT"
 		}else if(strArr[4].includes("station")){
@@ -32,6 +37,17 @@
 </head>
 <body onload="init()">
 	<div class="container">
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="mdi mdi-close close"></span>
+				<form action="signup" method="post">
+					<h1>ACCOUNT</h1>
+					<input type="text" name="id" placeholder="아이디를 입력해주세요"> <input
+						type="password" name="pass" placeholder="비밀번호를 입력해주세요">
+					<button>SIGN UP</button>
+				</form>
+			</div>
+		</div>
 		<jsp:include page="section/header.jsp"></jsp:include>
 		<div class="indexmain">
 			<div id="catchphrase">
@@ -39,7 +55,7 @@
 				</span>
 			</div>
 			<c:if test="${empty sessionScope.user }">
-			<jsp:include page="login/loginform.jsp"></jsp:include>
+				<jsp:include page="login/loginform.jsp"></jsp:include>
 			</c:if>
 		</div>
 		<jsp:include page="section/footer.jsp"></jsp:include>

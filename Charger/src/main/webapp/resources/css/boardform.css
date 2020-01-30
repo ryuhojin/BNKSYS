@@ -1,0 +1,54 @@
+.input_main {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.input_panel {
+	width: 40vw;
+	height: 70vh;
+	align-self: center;
+	background-color: #fff;
+	box-shadow: 1px 1px 10px 2px grey;
+}
+
+.input_panel>form {
+	width: 40vw;
+	height: 65vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.input_panel>form>input {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+}
+
+.input_panel>form>input[type=submit] {
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.input_panel>form>textarea {
+	margin-top: 2vh;
+	width: 80%;
+	align-self: center;
+	height: 30vh;
+}
+
+@media ( max-width :500px) {
+	.input_panel {
+		width: 90vw;
+		box-shadow: none;
+		border: 1px solid black;
+	}
+	.inputpanel>form {
+		width: 90vw;
+	}
+}

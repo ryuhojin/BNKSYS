@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BOARD</title>
 <link rel="stylesheet" type="text/css" href="resources/css/base.css">
+<link rel="stylesheet" type="text/css" href="resources/css/boardform.css">
 <script>
 	function init(){
 		var strArr = document.location.href.split("/");
@@ -29,7 +30,7 @@
 	<div class="container">
 		<jsp:include page="../section/header.jsp"></jsp:include>
 		<div class="input_main">
-			<div class="inputpanel">
+			<div class="input_panel">
 				<form action="insertBoard" method="post">
 					<h1 style="text-align: center">글 쓰기</h1>
 					<input type="text" name="id" readonly="readonly"

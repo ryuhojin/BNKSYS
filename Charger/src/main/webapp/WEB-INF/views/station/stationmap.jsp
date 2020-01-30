@@ -58,7 +58,7 @@
 		        return function() {
 		        	map.setZoom(15);
 		            map.setCenter(marker.getPosition()); 
- 		        	infowindow.setContent("<div style = 'width:30vw;height:15vw;'><h1 style='text-align:center; border-bottom:1px solid black;'>" +rst[i].cname
+ 		        	infowindow.setContent("<div style = 'width:40vw;height:20vh;'><h1 style='text-align:center; border-bottom:1px solid black;'>" +rst[i].cname
  		        			+"</h1><br>상세 주소 : "+rst[i].locdetail
  		        			+"<br>도로명주소 : "+rst[i].locst
  		        			+"<br>완속충전기대수 : "+rst[i].fullnum

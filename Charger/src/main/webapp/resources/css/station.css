@@ -1,0 +1,28 @@
+.station_main {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-item: center;
+}
+.station_button{
+	width:100vw;
+	height:5vh;
+	display:flex;
+	justify-content: flex-end;
+}
+.station_button>a{
+	align-self:center;
+	text-decoration: none;
+	margin-right:3vw;
+	font-size:1em;
+	color:#fff;
+	font-weight:bold;
+	
+}
+#stationP {
+	align-self: center;
+	width: 100vw;
+	height: 75vh;
+}

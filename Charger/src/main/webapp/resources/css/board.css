@@ -1,0 +1,105 @@
+.board_main {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.board_title {
+	display:flex;
+	align-items:center;
+	width:90vw;
+	height:10vh;
+	font-size:1.3em;
+	font-weight:bold;
+	justify-content:center;
+}
+.board_title>span{
+	border-bottom:1px solid silver;
+	padding-bottom:3px;
+	color:#fff;
+}
+.board_content {
+	width: 90vw;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-content: center;
+	overflow: scroll;
+	overflow-x: hidden;
+	background-color: #fff;
+	border: 1px solid grey;
+	box-shadow:1px 1px 10px 2px silver;
+}
+
+.board_content::-webkit-scrollbar {
+	width: 4px;
+}
+
+.board_content::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+}
+
+.board_content::-webkit-scrollbar-track {
+	background-color: #fff;
+}
+
+.board_write_btn>button {
+	width: 20vw;
+	height: 7vh;
+	border: 2px solid #fff;
+	color:#fff;
+	font-weight: bold;
+	background-color:transparent;
+	font-size: 1.1em;
+	border-radius: 10px;
+}
+.board_write_btn>button:hover{
+	color:red;
+}
+
+.board_li {
+	padding: 2%;
+	height: 8vh;
+	justify-content: space-around;
+}
+
+.board_mi {
+	height: 4vh;
+}
+.board_mi>span:hover{
+	color:red;
+}
+
+.board_li:nth-child(0) {
+	margin-top: 5vh;
+}
+
+.board_sub {
+	height: 3vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1px solid lightgrey;
+}
+
+.board_mi>span {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.board_sub>span {
+	font-size: 0.8em;
+	color: lightgrey;
+}
+
+@media ( max-width :500px) {
+	.board_content {
+		height: 70vh;
+	}
+	.board_li {
+		padding: 5%;
+	}
+}
