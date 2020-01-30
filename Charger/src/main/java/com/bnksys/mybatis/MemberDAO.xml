@@ -5,7 +5,7 @@
 
 <mapper namespace="com.bnksys.mybatis.MemberDAO">
 	<resultMap type="MemberModel" id="MemberModel">
-		<result property="no" column="mno" />
+		<result property="mno" column="mno" />
 		<result property="id" column="id" />
 		<result property="pass" column="pass" />
 	</resultMap>
@@ -13,4 +13,9 @@
 	<select id="MemberLogin" resultType="Integer" parameterType="com.bnksys.mybatis.MemberDAO">
 		SELECT count(*) FROM Member where mid=#{id} and mpass=#{pass}
 	</select>
+	
+	<select id="findID" resultType="java.lang.String" parameterType="java.lang.String">
+		SELECT mid FROM Member where mid=#{id};
+	</select>
+	
 </mapper>

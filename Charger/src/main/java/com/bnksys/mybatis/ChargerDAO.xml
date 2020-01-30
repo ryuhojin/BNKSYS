@@ -53,5 +53,13 @@
 	<select id="TotalNumStatic" resultMap="chartModel">
 		SELECT SUM(FULLNUM) AS fullSum , SUM(FASTNUM) AS fastSum FROM STATION
 	</select>
+	<!--search -->
+	<select id="searchByCname" resultMap="chargerModel" parameterType="java.lang.String">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,LOCST,PARKING,LAT,LNG,DISTRICT FROM STATION WHERE CNAME LIKE '%' || #{s_keyword} || '%'
+	</select>
+	
+	<select id="searchByDist" resultMap="chargerModel" parameterType="java.lang.String">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,LOCST,PARKING,LAT,LNG,DISTRICT FROM STATION WHERE DISTRICT LIKE '%' || #{s_keyword} || '%'
+	</select>
 	
 </mapper>

@@ -17,11 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bnksys.mybatis.BoardDAOImpl;
 import com.bnksys.mybatis.MemberDAOImpl;
 import com.bnksys.mybatis.MemberModel;
 
-import jdk.internal.org.jline.utils.Log;
 
 /**
  * Handles requests for the application home page.
@@ -45,8 +43,6 @@ public class HomeController {
 		return "login/loginform";
 	}
 	
-
-	
 	@RequestMapping(value = "/loginAf", method = { RequestMethod.GET,RequestMethod.POST })
 	public String loginAf(HttpSession httpSession,HttpServletRequest req,HttpServletResponse res, Model model) {
 		try {
@@ -57,6 +53,7 @@ public class HomeController {
 			MemberModel user = new MemberModel(id,pass);
 			System.out.println(user.toString());
 			int result = daoImpl.MemberLogin(user);
+			System.out.println(result);
 			//로그인 성공
 			if(result>0) {
 				System.out.println("로그인성공"+user.toString());
