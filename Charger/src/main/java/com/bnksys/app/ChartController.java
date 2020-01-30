@@ -27,6 +27,21 @@ public class ChartController {
 	private static final Logger logger = LoggerFactory.getLogger(ChartController.class);
 	//지역구별 충전소 현황
 	@RequestMapping(value = "/chart", method = {RequestMethod.POST,RequestMethod.GET})
+	public String pagechart(HttpServletRequest req, Locale locale, Model model) {
+		ArrayList<ChartModel> result = daoImpl.ChargerNumStatic();
+		model.addAttribute("result",result);
+		ArrayList<ChartModel> result2 = daoImpl.FullFastNumStatic();
+		System.out.println(result);
+		model.addAttribute("result2",result2);
+		ChartModel total = daoImpl.TotalNumStatic();
+		System.out.println(total.toString());
+		req.setAttribute("tatalfull",total.getFullSum() );
+		req.setAttribute("tatalfast",total.getFastSum());
+		return "chart/chartpage";
+	}
+	
+	
+	@RequestMapping(value = "/chart1", method = {RequestMethod.POST,RequestMethod.GET})
 	public String chart1Fn(Locale locale, Model model) {
 		ArrayList<ChartModel> result = daoImpl.ChargerNumStatic();
 		model.addAttribute("result",result);
@@ -37,9 +52,7 @@ public class ChartController {
 	@RequestMapping(value = "/chart2", method = {RequestMethod.POST,RequestMethod.GET})
 	public String chart2Fn(Locale locale, Model model) {
 		System.out.println("Enter to selectAllCharger");
-		ArrayList<ChartModel> result = daoImpl.FullFastNumStatic();
-		System.out.println(result);
-		model.addAttribute("result",result);
+		
 		return "chart/chart2";
 	}
 	

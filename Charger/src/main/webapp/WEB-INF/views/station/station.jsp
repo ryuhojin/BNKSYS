@@ -23,9 +23,6 @@
 		}
 
 	}
-    function golink() {
-    	location.href="stationlist";
-	}
     </script>
 </head>
 <body onload="init()">
@@ -33,7 +30,7 @@
     <jsp:include page="../section/header.jsp"></jsp:include>
     
     <div class="station_main">
-    	<span onclick="golink()" style="text-align:right; font-size:0.7em; color:grey; cursor:pointer; margin-right:8vh;">리스트로 보기</span>
+    	<span style="text-align:right; font-size:0.9em; color:grey; cursor:pointer; margin-right:8vh;"><a style="color:grey; text-decoration: none;" href="./chart">통계보기</a>&nbsp<a style="color:grey; text-decoration: none;" href="./stationlist">리스트로 보기</a></span>
         <jsp:include page="stationmap.jsp"></jsp:include>        
     </div>
     <jsp:include page="../section/footer.jsp"></jsp:include>
