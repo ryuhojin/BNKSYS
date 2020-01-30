@@ -5,9 +5,13 @@
 
 <div class="header">
 	<div class="logo">
-		<a href="/app/"><span>CHARGER</span></a><span id="now">&nbspHOME</span>
+		<a href="/app/"><span>CHARGER</span></a><span id="now"></span>
 	</div>
 	<div class="menu">
-		<a href="./board"><span>BOARD</span></a><a href="./station"><span>STATION</span></a><c:if test="${not empty sessionScope.user }"><a href="./logout"><span>LOGOUT</span></a></c:if>
+		<a href="./board"><span>BOARD</span></a> 
+		<a  href="./station"><span>STATION</span></a>
+		<c:if test="${not empty sessionScope.user }">
+			<a href="./logout"><span>LOGOUT</span></a>
+		</c:if>
 	</div>
 </div>

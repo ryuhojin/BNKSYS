@@ -8,7 +8,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	margin-top: 0; flex-direction : column;
+	margin-top: 0; 
+	flex-direction : column;
 	justify-content: center;
 	flex-direction: column;
 }
@@ -37,11 +38,11 @@ body {
 	color: black;
 }
 
+
 .logo>a>span {
 	padding-right: 1vw;
 	border-right: 1px solid black;
 }
-
 .menu {
 	width: 40vw;
 	display: flex;
@@ -133,7 +134,7 @@ body {
 /* 게시판 */
 .board_main {
 	width: 100vw;
-	height: 79vh;
+	height: 80vh;
 	background-image: url("../image/back.jpg");
 	background-size: auto;
 	display: flex;
@@ -141,33 +142,52 @@ body {
 	justify-content: center;
 }
 
-.board_main>.tableP {
-	width: 90vw;
-	height: 70vh;
+.tableP {
+	width: 80vw;
+	height: 68vh;
 	display: flex;
+	flex-direction:column;
 	align-self: center;
 	justify-content: center;
+	overflow:scroll;
+	overflow-x:hidden;
+	background-color:#fff;
 }
-
-.tableP>table {
-	background-color: #fff;
-	border: 1px solid black;
-	border-collapse: collapse;
-	align-self: center;
-	width: 90vw;
-	height: 50vh;
+.tableP::-webkit-scrollbar{
+	width: 4px;
 }
-.tableP>table>caption>h1{
-	margin-top:0;
-	margin-bottom:5px;
+.tableP::-webkit-scrollbar-thumb{
+	background-color: #2f3542;
 }
-
-table>th, td {
-	border-top: 1px solid black;
+.tableP::-webkit-scrollbar-track{
+	background-color: grey;
 }
-
-.board_main>.buttonP {
-	width: 90vw;
+.board_li{
+	height:8vh;
+	justify-content: space-around;
+}
+.board_mi{
+	height:4vh;
+}
+.board_li:nth-child(0)
+{
+	margin-top:5vh;
+}
+.board_sub{
+	height:3vh;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom:1px solid lightgrey;	
+}
+.board_mi>span{
+	font-size:1em; font-weight: bold;
+}
+.board_sub>span{
+	font-size: 0.8em; color:lightgrey;
+}
+.buttonP {
+	width: 80vw;
 	height: 10vh;
 	align-self: center;
 	display: flex;
@@ -175,13 +195,13 @@ table>th, td {
 }
 
 .buttonP>button {
-	margin-top: -1vh;
 	width: 20vw;
 	height: 7vh;
 	background-color: #fff;
 	border: 1px solid black;
 	font-weight: bold;
 	font-size: 1.1em;
+	border-radius:10px;
 }
 
 /*게시판글쓰기 */
@@ -252,7 +272,7 @@ table>th, td {
 	box-shadow: 1px 1px 10px 2px grey;
 }
 
-.viewpanel>form {
+#viewFRM {
 	width: 40vw;
 	height: 70vh;
 	display: flex;
@@ -260,7 +280,16 @@ table>th, td {
 	justify-content: center;
 }
 
-.viewpanel>form>input, div {
+#viewFRM>input {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border: 0px;
+	display: flex;
+	flex-direction: row;
+}
+#viewFRM>div {
 	align-self: center;
 	width: 80%;
 	height: 5vh;
@@ -276,7 +305,7 @@ table>th, td {
 	width: 80%;
 	justify-content: space-between;
 }	
-.viewpanel>form>textarea {
+#viewFRM>textarea {
 	margin-top: 2vh;
 	width: 80%;
 	align-self: center;
@@ -291,16 +320,59 @@ table>th, td {
 	background-image: url("../image/back.jpg");
 	background-size: auto;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
+	align-item:center;
 }
-
+#slist>tr>td{
+	border:0;
+}
+#slist::-webkit-scrollbar {
+    width: 4px;
+  }
+ #slist::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+  }
+#slist::-webkit-scrollbar-track {
+    background-color: grey;
+  }
 #stationP {
 	align-self: center;
 	width: 90vw;
-	height: 70vh;
+	height: 60vh;
 }
-
+.detailover{
+	width: 100vw;
+	height: 79vh;
+	display:flex;
+	background-image: url("../image/back.jpg");
+	background-size: cover;
+	justify-content: center;
+	align-content: center;
+}
+.detailmain{
+	width: 90vw;
+	height: 69vh;
+	display: flex;
+	flex-direction: row;
+	align-self: center;
+	justify-self: center;
+}
+#detailcontent{
+	width:50vw;
+	background-color:#fff;
+	height:69vh;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	font-size:0.8em;
+	justify-content: space-around;
+	
+}
+#detailmap{
+	width:40vw;
+	height:69vh;
+}
 @media ( max-width : 500px) {
 	/*공통 모바일 */
 	.header {
@@ -336,7 +408,15 @@ table>th, td {
 	/*메인 모바일*/
 	#catchphrase {
 		display: none;
+		justify-content: center;
 	}
+
+#catchphrase>span {
+	font-size: 3em;
+	font-weight: bold;
+	margin-left:0;
+	margin-top:-10vh;
+}
 	.indexmain {
 		height: 75vh;
 		display: flex;
@@ -369,10 +449,6 @@ table>th, td {
 		margin-top:0;
 		height:62vh;
 	}
-	.tableP>table>caption>h1{
-		margin-top:0;
-		margin-bottom:0;
-	}
 	.buttonP{
 		margin-top:0;
 	}
@@ -385,7 +461,28 @@ table>th, td {
 		box-shadow: none;
 		border: 1px solid black;
 	}
-	.viewpanel>form {
+	#viewFRM {
 		width: 90vw;
 	}
+	
+	/* 게시판 그거 */
+	
+	.detailmain{
+	flex-direction: column;
+}
+#detailcontent{
+	width:90vw;;
+	background-color:#fff;
+	height:25vh;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	font-size:0.8em;
+	justify-content: space-around;
+	
+}
+#detailmap{
+	width:90vw;
+	height:44vh;
+}
 }

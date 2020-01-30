@@ -15,36 +15,51 @@
     	function boardDtail(bno) {
     		location.href = './boarddetail?bno=' + bno; //get방식
     	}
+    	function init() {
+    		var strArr = document.location.href.split("/");
+    		if(strArr[4]==""){
+    			document.getElementById("now").innerHTML="&nbspHOME"
+    		}else if(strArr[4].includes("detail")){
+    			document.getElementById("now").innerHTML="&nbspDETAIL"
+    		}else if(strArr[4].includes("insert")){
+    			document.getElementById("now").innerHTML="&nbspINSERT"
+    		}else if(strArr[4].includes("station")){
+    			document.getElementById("now").innerHTML="&nbspSTATION"
+    		}else if(strArr[4].includes("board")){
+    			document.getElementById("now").innerHTML="&nbspBOARD"
+    		}
+
+		}
     	</script>
 </head>
-<body>
+<body onload="init()">
 <div class="container">
      <jsp:include page="../section/header.jsp"></jsp:include>
     <div class="board_main">
        <div class="tableP">
-           <table>
-               <caption><h1>게시판</h1></caption>
-               <thead style="background-color:#f6f6f6;">
-                    <tr style="height: 5vh"><th style="width:5vw;">No</th><th style="width:60vw;">제목</th><th style="width:10vw;">저자</th><th style="width:15vw;">일자</th></tr>
-               </thead>
-               <tbody>
-               <c:forEach var="b" items="${result }">
-               <tr onclick=boardDtail(${b.bno}) style="height:5vh;"><td style="text-align: center;">${b.bno }</td><td style="font-weight: bold">${b.btitle }</td><td>${b.mno }</td><td>${b.bdate}</td></tr>
-               </c:forEach>
-               </tbody>
-           </table>
+       <c:forEach var="b" items="${result }">
+       <div class="board_li" onclick=boardDtail(${b.bno})>
+       		<div class="board_mi">
+       		<span>${b.btitle }</span>
+       		</div>
+       		<div class="board_sub">
+       		<span>글번호 : ${b.bno }</span><span>저자 : ${b.mno }</span><span>작성시간 : ${b.bdate}</span>
+       		</div>
        </div>
-       <c:if test="${not empty sessionScope.user.id }">
+       </c:forEach>
+       
+    </div>
+    <c:if test="${not empty sessionScope.user.id }">
         <div class="buttonP">
             <button onclick="aaa()">글쓰기</button>
         </div>
         </c:if>
-    </div>
-     <jsp:include page="../section/footer.jsp"></jsp:include>
+     
      <script>
     	function aaa(){
     		location.href='boardinsert';
     	}</script>
 </div>
+<jsp:include page="../section/footer.jsp"></jsp:include>	
 </body>
 </html>

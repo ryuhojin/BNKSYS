@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bnksys.mybatis.ChargerDAO">
+	<resultMap type="ChargerModel" id="chargerModel">
+		<result property="cno" column="cno" />
+		<result property="cname" column="cname" />
+		<result property="locdetail" column="locdetail" />
+		<result property="starttime" column="starttime" />
+		<result property="endtime" column="endtime" />
+		<result property="fullnum" column="fullnum" />
+		<result property="fastnum" column="fastnum" />
+		<result property="locst" column="locst" />
+		<result property="parking" column="parking" />
+		<result property="lat" column="lat" />
+		<result property="lng" column="lng" />
+		<result property="district" column="district" />
+	</resultMap>
+	
+	<resultMap type="ChartModel" id="chartModel">
+		<result property="district" column="district" />
+		<result property="disPerNum" column="disPerNum" />
+		<result property="disPerFull" column="disPerFull" />
+		<result property="disPerFast" column="disPerFast" />
+		<result property="fullSum" column="fullSum" />
+		<result property="fastSum" column="fastSum" />
+	</resultMap>
+	
+	<!-- 충전소 -->
+	<select id="selectAllCharger" resultMap="chargerModel">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,LOCST,PARKING,LAT,LNG,DISTRICT FROM STATION
+	</select>
+	
+	<select id="findOneCharger" parameterType="Integer"
+	resultMap="chargerModel">
+		SELECT CNO,CNAME,LOCDETAIL,STARTTIME,ENDTIME,FULLNUM,FASTNUM,PARKING,LOCST,LAT,LNG,DISTRICT FROM STATION WHERE CNO=#{cno}
+	</select> 
+	
+	<!-- 차트 -->
+	<!-- 지역구별 전기차 충전소 대수 현황 -->
+	<select id="ChargerNumStatic" resultMap="chartModel">
+		SELECT DISTRICT, COUNT(district) AS DISPERNUM FROM STATION GROUP BY DISTRICT
+	</select>
+	
+	<!-- 지역구별 완충/급속 충전기 현황 -->
+	<select id="FullFastNumStatic" resultMap="chartModel">
+		SELECT DISTRICT, SUM(FULLNUM)AS DISPERFULL ,SUM(FASTNUM) AS DISPERFAST FROM STATION GROUP BY DISTRICT
+	</select>
+	
+	<!-- 완충/급속 충전기 전체 현황 -->
+	<select id="TotalNumStatic" resultMap="chartModel">
+		SELECT SUM(FULLNUM) AS fullSum , SUM(FASTNUM) AS fastSum FROM STATION
+	</select>
+	
+</mapper>
