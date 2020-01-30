@@ -1,0 +1,167 @@
+.indexmain {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+}
+
+#catchphrase {
+	width: 60vw;
+	height: 80vh;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+#catchphrase>span {
+	margin-left: 10vw;
+	font-size: 5em;
+	font-weight: bold;
+	color: white;
+}
+
+#login {
+	width: 40vw;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#login>form {
+	box-shadow: 1px 1px 10px 1px grey;
+	background-color: #fff;
+	width: 20vw;
+	height: 50vh !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 1px 1px 10px 3px silver;
+}
+
+#login>form>input {
+	border-radius: 5px;
+	border: 1px solid grey;
+	width: 78%;
+	height: 5vh;
+	margin-bottom: 2vh;
+	padding-left: 2%;
+}
+
+#login>form>button {
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid black;
+}
+
+#login>form>span {
+	color: red;
+	font-size: 0.8em;
+	padding-top: 1vh;
+	cursor: pointer;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	position: fixed;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	width: 20vw;
+	height: 50vh;
+	background-color: black;
+}
+
+.modal-content {
+	width: 20vw;
+	height: 50vh;
+}
+
+.modal-content>form {
+	margin-top: -10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 20vw;
+	height: 50vh
+}
+
+.modal-content>form>h1 {
+	color: #fff;
+}
+
+.modal-content>form>input {
+	border-radius: 5px;
+	border: 1px solid grey;
+	width: 78%;
+	height: 5vh;
+	margin-bottom: 2vh;
+	padding-left: 2%;
+	color: black;
+}
+
+.modal-content>form>button {
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid black;
+}
+
+.modal-content>form>input::placeholder {
+	font-weight: bold;
+}
+
+.close {
+	color: #fff;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: red;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+@media ( max-width :500px) {
+	#catchphrase {
+		display: none;
+		justify-content: center;
+	}
+	#catchphrase>span {
+		font-size: 3em;
+		font-weight: bold;
+		margin-left: 0;
+		margin-top: -10vh;
+	}
+	.indexmain {
+		display: flex;
+		justify-content: center;
+	}
+	#login {
+		width: 90vw;
+		height: 70vh;
+	}
+	#login>form {
+		width: 85vw;
+		height: 60vh;
+	}
+	.modal,.modal-content {
+		width: 90vw;
+		height: 70vh;
+	}
+	.modal-content>form {
+		width: 85vw;
+		height: 60vh;
+	}
+}

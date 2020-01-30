@@ -13,4 +13,8 @@
 	<select id="MemberLogin" resultType="Integer" parameterType="com.bnksys.mybatis.MemberDAO">
 		SELECT count(*) FROM Member where mid=#{id} and mpass=#{pass}
 	</select>
+	
+	<insert id="MemberAccount" parameterType="com.bnksys.mybatis.MemberDAO">
+		INSERT INTO Member VALUES(MNOSQ.nextval,#{id},#{pass})
+	</insert>
 </mapper>

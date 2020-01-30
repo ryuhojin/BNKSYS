@@ -1,0 +1,45 @@
+.station_main {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-item: center;
+}
+.station_page_name{
+	width:100%;
+	height:10%;
+	display:flex;
+	justify-content: center;
+}
+.station_page_name>span{
+	align-self:center;
+	font-size:1.2em;
+	font-weight:bold
+}
+
+#slist {
+	background-color: #fff;
+	align-self: center;
+	width: 100vw;
+	height: 70vh;
+	display: flex;
+	flex: row;
+	justify-content: center;
+	align: center;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+
+#slist::-webkit-scrollbar {
+	width: 2px;
+}
+
+#slist::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+}
+
+#slist::-webkit-scrollbar-track {
+	background-color: #fff;
+}

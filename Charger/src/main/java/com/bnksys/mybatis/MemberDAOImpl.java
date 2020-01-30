@@ -1,5 +1,6 @@
 package com.bnksys.mybatis;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,6 +20,12 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	@Override
+	public void MemberAccount(MemberModel mem) {
+		MemberDAO mapper = sqlSession.getMapper(MemberDAO.class);
+		mapper.MemberAccount(mem);
+	}
+	
 
 
 }

@@ -1,0 +1,82 @@
+.view_main {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.view_panel {
+	width: 40vw;
+	height: 70vh;
+	align-self: center;
+	background-color: #fff;
+	box-shadow: 1px 1px 10px 2px grey;
+}
+
+#view_FRM {
+	width: 40vw;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.effectbtn {
+	width: 35%;
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.effectbtn:hover {
+	color: red;
+	border: 1px solid red;
+}
+
+#view_FRM>input {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border: 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+#view_FRM>div {
+	align-self: center;
+	width: 80%;
+	height: 5vh;
+	margin-top: 2vh;
+	border: 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+#view_FRM>textarea {
+	margin-top: 2vh;
+	width: 80%;
+	align-self: center;
+	height: 30vh;
+	border: 1px solid #f6f6f6;
+}
+
+#buttonCap {
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+	justify-content: space-between;
+}
+
+@media ( max-width :500px) {
+	.view_panel {
+		width: 90vw;
+		box-shadow: none;
+		border: 1px solid black;
+	}
+	#view_FRM {
+		width: 90vw;
+	}
+}

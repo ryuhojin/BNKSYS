@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BOARD</title>
-        <link rel="stylesheet" type="text/css" href="resources/css/base.css">
-        <script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BOARD</title>
+<link rel="stylesheet" type="text/css" href="resources/css/base.css">
+<link rel="stylesheet" type="text/css" href="resources/css/board.css">
+<script>
     	function aaa(){
     		location.href='boardinsert';
     	}
@@ -33,33 +34,41 @@
     	</script>
 </head>
 <body onload="init()">
-<div class="container">
-     <jsp:include page="../section/header.jsp"></jsp:include>
-    <div class="board_main">
-       <div class="tableP">
-       <c:forEach var="b" items="${result }" varStatus="vs">
-       <div class="board_li" onclick=boardDtail(${b.bno})>
-       		<div class="board_mi">
-       		<span>${b.btitle }</span>
-       		</div>
-       		<div class="board_sub">
-       		<span>글번호 : ${vs.count }</span><span>저자 : ${b.mno }</span><span>작성시간 : ${b.bdate}</span>
-       		</div>
-       </div>
-       </c:forEach>
-       
-    </div>
-    <c:if test="${not empty sessionScope.user.id }">
-        <div class="buttonP">
-            <button onclick="aaa()">글쓰기</button>
-        </div>
-        </c:if>
-     
-     <script>
+	<div class="container">
+		<jsp:include page="../section/header.jsp"></jsp:include>
+		<div class="board_main">
+			<div class="board_title"><span>게시판</span></div>
+			<div class="board_content">
+				<c:forEach var="b" items="${result }" varStatus="vs">
+					<div class="board_li" onclick=boardDtail(${b.bno})>
+						<div class="board_mi">
+							<span>${b.btitle }</span>
+						</div>
+						<div class="board_sub">
+							<span>글번호 : ${vs.count }</span><span>저자 : ${b.mno }</span><span>작성시간
+								: ${b.bdate}</span>
+						</div>
+					</div>
+				</c:forEach>
+
+			</div>
+			<c:if test="${not empty sessionScope.user.id }">
+				<div class="board_write_btn"
+					style="width: 90vw; height: 10vh; align-items: center; display: flex; justify-content: flex-end;">
+					<button onclick="aaa()">글쓰기</button>
+				</div>
+			</c:if>
+			<c:if test="${empty sessionScope.user.id }">
+				<div class="board_write_btn"
+					style="width: 90vw; height: 10vh; align-items: center; display: flex; justify-content: center">
+					<span style="color:#fff;">회원가입을 하시면 글을 작성하실 수 있습니다.</span>
+				</div>
+			</c:if>
+			<script>
     	function aaa(){
     		location.href='boardinsert';
     	}</script>
-</div>
-<jsp:include page="../section/footer.jsp"></jsp:include>	
+		</div>
+		<jsp:include page="../section/footer.jsp"></jsp:include>
 </body>
 </html>

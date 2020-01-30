@@ -1,0 +1,65 @@
+.cmain {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+	overflow-y:hidden;
+}
+
+#chartleft {
+	width: 50vw;
+	height: 80vh;
+}
+
+#chartright {
+	width: 50vw;
+	display: flex;
+	flex-direction: column;
+}
+
+#rightup {
+	width: 50vw;
+	height: 40vh;
+}
+
+#rightdown {
+	width: 50vw;
+	height: 40vh;
+	background-color:#fff;
+}
+
+@media ( max-width : 500px) {
+	.cmain {
+		flex-direction: column;
+	}
+	#chartleft {
+		width: 100vw;
+		height: 20vh;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		justify-content: center;
+		align-self: center;
+		justify-self: center;
+	}
+	#chartright {
+		width: 100vw;
+		height: 60vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-self: center;
+		justify-self: center;
+	}
+	#rightup {
+		width: 100vw;
+		height: 30vh;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	#rightdown {
+		width: 100vw;
+		height: 30vh;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+}

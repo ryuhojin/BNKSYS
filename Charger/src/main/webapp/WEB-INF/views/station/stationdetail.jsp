@@ -15,6 +15,8 @@
 	}
 	
 </script>
+<link rel="stylesheet" type="text/css" href="resources/css/base.css">
+<link rel="stylesheet" type="text/css" href="resources/css/s_detail.css">
 </head>
 <style scoped="scoped">
 /* Always set the map height explicitly to define the size of the div
@@ -32,8 +34,7 @@ html, body {
 <body>
 	<div class="container">
 		<jsp:include page="../section/header.jsp"></jsp:include>
-		<div class="detailover">
-			<div class="detailmain">
+		<div class="detail_main">
 				<div id="detailcontent">
 					<span>충전소명 : ${result.cname }</span> <span>상세위치 :
 						${result.locdetail}</span> <span>도로명주소 : ${result.locst}</span> <span>완속충전기대수
@@ -42,42 +43,8 @@ html, body {
 						${result.parking}</span>
 				</div>
 				<div id="detailmap"></div>
-			</div>
 		</div>
 		<jsp:include page="../section/footer.jsp"></jsp:include>
-		<%-- <table>
-			<tr>
-			<tr>
-				<th>충전소명</th>
-				<td>${result.cname }
-			</tr>
-			<tr>
-				<th>상세위치</th>
-				<td>${result.locdetail}
-			</tr>
-			<tr>
-				<th>도로명주소</th>
-				<td>${result.locst}</td>
-			</tr>
-			<tr>
-				<th>완속충전기대수</th>
-				<td>${result.fullnum}</td>
-			</tr>
-			<tr>
-				<th>급속충전기대수</th>
-				<td>${result.fastnum}</td>
-			</tr>
-			<tr>
-				<th>이용가능시간</th>
-				<td>${result.starttime}~${result.endtime}</td>
-			</tr>
-			<tr>
-				<th>주차료부과여부</th>
-				<td>${result.parking}</td>
-			</tr>
-		</table>
-		<a href="./station">목록으로</a>
-		<div id="map"></div> --%>
 	</div>
 </body>
 <script>
