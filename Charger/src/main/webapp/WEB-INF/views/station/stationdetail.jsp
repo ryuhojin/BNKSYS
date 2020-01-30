@@ -45,7 +45,7 @@
           zoom: 4,
           center: loc
         });
-        
+
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -76,7 +76,12 @@
           map: map,
           title: '안녕'
         });
+        
+        bounds  = new google.maps.LatLngBounds();
+		map.setZoom(11);       
         marker.addListener('click', function() {
+       	  map.setZoom(15);
+          map.setCenter(marker.getPosition());
           infowindow.open(map, marker);
         });
       }

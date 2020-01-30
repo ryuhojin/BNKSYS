@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -15,6 +16,7 @@
 </script>
 </head>
 <body>
+<div id="map"></div>
 <h2>Station list</h2>
 <table>
 <c:forEach var="b" items="${result }">

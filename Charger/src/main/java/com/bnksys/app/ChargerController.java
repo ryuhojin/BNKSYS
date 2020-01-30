@@ -37,6 +37,14 @@ public class ChargerController {
 		return "station/stationlist";
 	}
 	
+	@RequestMapping(value = "/stationmap", method = {RequestMethod.POST,RequestMethod.GET})
+	public String showmapFn(Locale locale, Model model) {
+		System.out.println("Enter to showmap");
+		ArrayList<ChargerModel> result = daoImpl.selectAllCharger();
+		model.addAttribute("result",result);
+		return "station/stationmap";
+	}
+	
 	@RequestMapping(value = "/stationdetail", method = RequestMethod.GET)
 	public String selectoFn(HttpServletRequest req,HttpServletResponse res, Model model) {
 		try {
