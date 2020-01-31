@@ -1,8 +1,5 @@
 package com.bnksys.mybatis;
 
-import java.lang.reflect.Member;
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,9 +11,9 @@ public class MemberDAOImpl implements MemberDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public int MemberLogin(MemberModel mem) {
+	public MemberModel MemberLogin(MemberModel mem) {
 		MemberDAO mapper = sqlSession.getMapper(MemberDAO.class);
-		int result = mapper.MemberLogin(mem);
+		MemberModel result = mapper.MemberLogin(mem);
 		return result;
 	}
 
@@ -24,6 +21,20 @@ public class MemberDAOImpl implements MemberDAO {
 	public void MemberAccount(MemberModel mem) {
 		MemberDAO mapper = sqlSession.getMapper(MemberDAO.class);
 		mapper.MemberAccount(mem);
+	}
+	
+	@Override
+	public String findID(int mno) {
+		MemberDAO mapper = sqlSession.getMapper(MemberDAO.class);
+		String mid = mapper.findID(mno);
+		return mid;
+	}
+
+	@Override
+	public int idcheck(String id) {
+		MemberDAO mapper = sqlSession.getMapper(MemberDAO.class);
+		int check = mapper.idcheck(id);
+		return check;
 	}
 	
 

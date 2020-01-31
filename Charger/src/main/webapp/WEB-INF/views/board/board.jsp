@@ -37,7 +37,9 @@
 	<div class="container">
 		<jsp:include page="../section/header.jsp"></jsp:include>
 		<div class="board_main">
-			<div class="board_title"><span>게시판</span></div>
+			<div class="board_title">
+				<span>게시판</span>
+			</div>
 			<div class="board_content">
 				<c:forEach var="b" items="${result }" varStatus="vs">
 					<div class="board_li" onclick=boardDtail(${b.bno})>
@@ -45,23 +47,28 @@
 							<span>${b.btitle }</span>
 						</div>
 						<div class="board_sub">
-							<span>글번호 : ${vs.count }</span><span>저자 : ${b.mno }</span><span>작성시간
+							<span>글번호 : ${vs.count }</span><span>저자 : ${b.mid }</span><span>작성시간
 								: ${b.bdate}</span>
 						</div>
 					</div>
 				</c:forEach>
 
 			</div>
-			<c:if test="${not empty sessionScope.user.id }">
+			<c:if test="${not empty sessionScope.user.mid }">
 				<div class="board_write_btn"
 					style="width: 90vw; height: 10vh; align-items: center; display: flex; justify-content: flex-end;">
+					<form action ="searchboard" method="get">
+						<input type="text" name="btitle" id="btitle" style="width:45vw; height:6vh; border:2px solid #fff; color:#fff; font-weight:bold; background-color: transparent; font-size:1em;" placeholder="전체검색">
+						<button
+							style="width: 20vw; height: 7vh; border: 2px solid #fff; color: #fff; font-weight: bold; background-color: transparent; font-size: 1.1em; border-radius: 10px; margin-right:1vw;">검색</button>
+					</form>
 					<button onclick="aaa()">글쓰기</button>
 				</div>
 			</c:if>
-			<c:if test="${empty sessionScope.user.id }">
+			<c:if test="${empty sessionScope.user.mid }">
 				<div class="board_write_btn"
 					style="width: 90vw; height: 10vh; align-items: center; display: flex; justify-content: center">
-					<span style="color:#fff;">회원가입을 하시면 글을 작성하실 수 있습니다.</span>
+					<span style="color: #fff;">회원가입을 하시면 글을 작성하실 수 있습니다.</span>
 				</div>
 			</c:if>
 			<script>

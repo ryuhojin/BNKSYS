@@ -1,6 +1,7 @@
 package com.bnksys.mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,20 @@ public class ChargerDAOImpl implements ChargerDAO {
 		return charger;
 	}
 
+	@Override
+	public List<ChargerModel> searchByCname(String s_keyword) {
+		ChargerDAO mapper = sqlSession.getMapper(ChargerDAO.class);
+		List<ChargerModel> charger = mapper.searchByCname(s_keyword);
+		System.out.println(charger.toString());
+		return charger;
+	}
+
+	@Override
+	public List<ChargerModel> searchByDist(String s_keyword) {
+		ChargerDAO mapper = sqlSession.getMapper(ChargerDAO.class);
+		List<ChargerModel> charger = mapper.searchByDist(s_keyword);
+		System.out.println(charger.toString());
+		return charger;
+	}
 
 }

@@ -1,6 +1,7 @@
 package com.bnksys.mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ChargerDAO {
 	public ArrayList<ChargerModel> selectAllCharger();	//전체 리스트검색
@@ -11,5 +12,7 @@ public interface ChargerDAO {
 	public ArrayList<ChartModel> FullFastNumStatic();
 	//전체 완충,급속 갯수 차트
 	public ChartModel TotalNumStatic();
-	
+	//검색어로 찾기
+	public List<ChargerModel> searchByCname(String s_keyword);
+	public List<ChargerModel> searchByDist(String s_keyword);
 }

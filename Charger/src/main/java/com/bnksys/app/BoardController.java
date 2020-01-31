@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bnksys.mybatis.BoardDAOImpl;
 import com.bnksys.mybatis.BoardModel;
+import com.bnksys.mybatis.MemberDAOImpl;
 
 @Controller
 public class BoardController {
 	
 	@Autowired
 	BoardDAOImpl daoImpl;
+	@Autowired
+	MemberDAOImpl daoImpl2;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
@@ -37,6 +41,17 @@ public class BoardController {
 	public String selectFn(Locale locale, Model model) {
 		System.out.println("Enter to selectAllBoard");
 		ArrayList<BoardModel> result = daoImpl.selectAllBoard();
+		System.out.println(result.toString());
+		model.addAttribute("result",result);
+		return "board/board";
+	}
+	
+	@RequestMapping(value = "/searchboard", method = {RequestMethod.POST,RequestMethod.GET})
+	public String selectBFn(HttpServletRequest req,HttpSession session, Locale locale, Model model) {
+		System.out.println("Enter to selectAllBoard");
+		session.setAttribute("searchdata", req.getParameter("btitle"));
+		System.out.println();
+		ArrayList<BoardModel> result = daoImpl.findBoard(session.getAttribute("searchdata").toString());
 		model.addAttribute("result",result);
 		return "board/board";
 	}
@@ -48,8 +63,11 @@ public class BoardController {
 			res.setContentType("text/html;charset=UTF-8");
 			int bno = Integer.parseInt(req.getParameter("bno"));
 			BoardModel result = daoImpl.findOneBoard(bno);
+			String mid = daoImpl2.findID(result.getMno());
+			System.out.println(mid);
 			System.out.println(result.toString());
 			model.addAttribute("result",result);
+			model.addAttribute("mid",mid);
 		} catch (UnsupportedEncodingException e) {
 			System.out.println(e.getMessage());
 		}

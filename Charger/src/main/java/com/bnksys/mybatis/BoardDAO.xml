@@ -15,7 +15,9 @@
 	<select id="selectAllBoard" resultMap="boardModel">
 		SELECT * FROM BOARD
 	</select>
-	
+	<select id="findBoard" resultMap ="boardModel">
+		SELECT * FROM BOARD WHERE BTITLE like '%'||#{btitle}||'%' OR BCONTENT like '%'||#{bcontent}||'%'
+	</select>
 	<select id="findOneBoard" parameterType="Integer"
 	resultMap="boardModel">
 		SELECT * FROM BOARD WHERE BNO=#{bno}

@@ -6,6 +6,23 @@ public class BoardModel {
 	String bcontent;
 	String bdate;
 	int mno;
+	String mid;
+	
+	public BoardModel(int bno, String btitle, String bcontent, String bdate, int mno, String mid) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bdate = bdate;
+		this.mno = mno;
+		this.mid = mid;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
 	public BoardModel() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,8 +76,6 @@ public class BoardModel {
 	@Override
 	public String toString() {
 		return "BoardModel [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bdate=" + bdate
-				+ ", mno=" + mno + "]";
+				+ ", mno=" + mno + ", mid=" + mid + "]";
 	}
-	
-	
 }

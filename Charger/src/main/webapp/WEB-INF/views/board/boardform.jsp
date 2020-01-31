@@ -34,8 +34,8 @@
 				<form action="insertBoard" method="post">
 					<h1 style="text-align: center">글 쓰기</h1>
 					<input type="text" name="id" readonly="readonly"
-						placeholder="${sessionScope.user.id }"
-						value="${sessionScope.user.id }"> 
+						placeholder="${sessionScope.user.mid }"
+						value="${sessionScope.user.mid }"> 
 					<input type="hidden"
 						name="mno" readonly="readonly"
 						placeholder="${sessionScope.user.mno }"

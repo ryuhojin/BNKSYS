@@ -2,22 +2,21 @@ package com.bnksys.mybatis;
 
 public class MemberModel {
 	int mno;
-	String id;
-	String pass;
+	String mid;
+	String mpass;
 	public MemberModel() {
 		mno = 0;
-		id= "";
-		pass="";
+		mid= "";
+		mpass="";
 	}
-	public MemberModel(int mno, String id, String pass) {
-		super();
+	public MemberModel(int mno, String mid, String mpass) {
 		this.mno = mno;
-		this.id = id;
-		this.pass = pass;
+		this.mid = mid;
+		this.mpass = mpass;
 	}
-	public MemberModel(String id, String pass) {
-		this.id = id;
-		this.pass = pass;
+	public MemberModel(String mid, String mpass) {
+		this.mid = mid;
+		this.mpass = mpass;
 	}
 	public int getMno() {
 		return mno;
@@ -25,20 +24,17 @@ public class MemberModel {
 	public void setMno(int mno) {
 		this.mno = mno;
 	}
-	public String getId() {
-		return id;
+	public String getMid() {
+		return mid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
-	public String getPass() {
-		return pass;
+	public String getMpass() {
+		return mpass;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setMpass(String mpass) {
+		this.mpass = mpass;
 	}
-	@Override
-	public String toString() {
-		return "Member [mno=" + mno + ", id=" + id + ", pass=" + pass + "]";
-	}
+	
 }

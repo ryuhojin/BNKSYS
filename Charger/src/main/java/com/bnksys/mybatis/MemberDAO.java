@@ -1,9 +1,10 @@
 package com.bnksys.mybatis;
 
-import java.util.ArrayList;
 
 public interface MemberDAO {
-	public int MemberLogin(MemberModel mem);
+	public MemberModel MemberLogin(MemberModel mem);
+	public String findID(int mno);
 	public void MemberAccount(MemberModel mem);
+	public int idcheck(String id);
 	
 }

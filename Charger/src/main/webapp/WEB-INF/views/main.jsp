@@ -9,8 +9,10 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="resources/css/base.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	function init() {
 		if(${not empty sessionScope.user})
@@ -33,6 +35,43 @@
 			document.getElementById("now").innerHTML="&nbspBOARD"
 		}
 		}
+	function enterkey(){
+		$.ajax({
+			url: "idcheck",
+			type: "POST",
+			data:{
+				"id":$('#id').val()
+			},
+			success: function(data){
+				
+				$('#id').attr("check_result",data)
+				if(data=="true")
+				{
+					var e1 = document.getElementById("checkers")
+					e1.style.backgroundColor = "green";
+				}
+				
+			},
+			error: function(){
+				alert("서버에 문제가 있습니다")
+			}
+		});
+
+	}
+	function LoginOK()
+	{
+		if($('#id').attr("check_result") == "true")
+			{
+			alert("가입이 완료되었습니다.")
+			return true
+			}
+		else
+			{
+			alert("이미 존재하는 아이디 입니다.")
+			return false
+			}
+	}
+	
 </script>
 </head>
 <body onload="init()">
@@ -40,11 +79,15 @@
 		<div id="myModal" class="modal">
 			<div class="modal-content">
 				<span class="mdi mdi-close close"></span>
-				<form action="signup" method="post">
-					<h1>ACCOUNT</h1>
-					<input type="text" name="id" placeholder="아이디를 입력해주세요"> <input
-						type="password" name="pass" placeholder="비밀번호를 입력해주세요">
-					<button>SIGN UP</button>
+				<form action="signup" method="post" onSubmit="return LoginOK()">
+					<div>
+						<span>ACCOUNT</span><input type="button" onclick="enterkey()" id="checkers">
+					</div>
+					<input  type="text" id="id" name="id"
+						placeholder="아이디를 입력해주세요" check_result="false" required> <input
+						type="password" id="pass" name="pass" placeholder="비밀번호를 입력해주세요"
+						required> 
+						<input type="submit" value="SIGN UP">
 				</form>
 			</div>
 		</div>

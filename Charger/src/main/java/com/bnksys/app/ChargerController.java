@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bnksys.mybatis.ChargerDAOImpl;
 import com.bnksys.mybatis.ChargerModel;
+import com.google.gson.Gson;
 
 @Controller
 public class ChargerController {
@@ -61,4 +64,22 @@ public class ChargerController {
 		return "station/stationdetail";
 	}
 	
+	//검색결과 json 형태로 보내기
+	@RequestMapping(value = "/search", method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public void search(String s_category,String s_keyword ,HttpServletResponse response,HttpServletRequest request, Model model) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/json; charset=utf-8");
+		/* System.out.println(s_category+"/"+s_keyword); */
+		List<ChargerModel> chargers =null;
+		if(s_category.equals("cname")) {
+			chargers = daoImpl.searchByCname(s_keyword);
+		}else {
+			chargers = daoImpl.searchByDist(s_keyword);
+		}
+		System.out.println("확인 " + chargers);
+		Gson gson = new Gson();
+
+		response.getWriter().write(gson.toJson(chargers));
+	}
 }

@@ -52,13 +52,14 @@
                 <div style="display:flex; flex-direction: row; justify-content: center;">
                 <span style="text-align: center; align-self:center; font-size:1.3em; font-weight: bold;  padding-right: 1vw;">글 상세내용</span><c:if test="${sessionScope.user.mno eq result.mno}"><span id="changeF" style="border-left: 1px solid black;padding-left:1vw; align-self:center; cursor:pointer; color:grey;" onclick="updateF()">수정하기</span></c:if>
                 </div>
-                <input type="hidden" name="bno" placeholder="${result.bno }" value="${result.bno }">
-                <input type="number" name="mno" readonly="readonly" placeholder="${result.mno }"
-                       value="${result.mno }">
+                <input type="hidden" name="bno" value="${result.bno }">
+                <input type="hidden" name="mno" value="${result.mno }">
+                <input type="text" name="mid" readonly="readonly" placeholder="${mid }"
+                       value="${mid }">
                 <input type="hidden" name="bdate" placeholder="${result.bdate }"
                        value="${result.bdate }">
-                <input id="btitle" type="text" name="btitle" readonly="readonly" placeholder="${result.btitle }" value="${result.btitle }" placeholder="제목을 입력하세요">
-                <textarea id="bcontent" name="bcontent" readonly="readonly">${result.bcontent }</textarea>
+                <input style="font-weight:bold;" id="btitle" type="text" name="btitle" readonly="readonly" placeholder="제목 : ${result.btitle }" value="${result.btitle }" placeholder="제목을 입력하세요">
+                <textarea id="bcontent" name="bcontent" readonly="readonly"> ${result.bcontent }</textarea>
                 <c:if test="${sessionScope.user.mno eq result.mno}">
                 <div id="buttonCap" style="justify-self:center;">
                 	<input type="submit" class="effectbtn" value="수정하기" style=""> 

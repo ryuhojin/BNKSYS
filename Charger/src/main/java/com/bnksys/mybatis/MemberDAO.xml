@@ -5,16 +5,22 @@
 
 <mapper namespace="com.bnksys.mybatis.MemberDAO">
 	<resultMap type="MemberModel" id="MemberModel">
-		<result property="no" column="mno" />
-		<result property="id" column="id" />
-		<result property="pass" column="pass" />
+		<result property="mno" column="mno" />
+		<result property="mid" column="mid" />
+		<result property="mpass" column="mpass" />
 	</resultMap>
 
-	<select id="MemberLogin" resultType="Integer" parameterType="com.bnksys.mybatis.MemberDAO">
-		SELECT count(*) FROM Member where mid=#{id} and mpass=#{pass}
+	<select id="MemberLogin" resultType="MemberModel" parameterType="com.bnksys.mybatis.MemberDAO">
+		SELECT mno, mid, mpass FROM Member where mid=#{mid} and mpass=#{mpass}
 	</select>
-	
+	<select id="findID" resultType="java.lang.String" parameterType="Integer">
+		SELECT mid FROM Member where mno=#{mno}
+	</select>
 	<insert id="MemberAccount" parameterType="com.bnksys.mybatis.MemberDAO">
-		INSERT INTO Member VALUES(MNOSQ.nextval,#{id},#{pass})
+		INSERT INTO Member VALUES(MNOSQ.nextval,#{mid},#{mpass})
 	</insert>
+	<select id="idcheck" resultType="int">
+		SELECT COUNT(*) FROM MEMBER WHERE mid=#{mid}
+	</select>
+
 </mapper>

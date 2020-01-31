@@ -8,5 +8,5 @@ public interface BoardDAO {
 	public void insertBoard(BoardModel board);	//추가
 	public void deleteBoard(int bno);	//삭제
 	public void updateBoard(BoardModel board);	//업데이트
-	
+	public ArrayList<BoardModel> findBoard(String btitle);
 }
